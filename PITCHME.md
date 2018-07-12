@@ -98,29 +98,16 @@ Example
 
 ---
 
-### @fa[code-commit]
-
- * @fa[code-merge]
- * @fa[code-branch]
-
----
-
-![](img/git-local-remotes.png)
-*What's happening under the hood?*
+<div class="left">
+	![](img/git-local-remotes.png)
+</div>
+<div class="right">
+	*What's happening under the hood?*
+</div>
 
 ---
 
-## DO NOT DO THESE THINGS!!!
-
- * Commit large files to the repository. You can get rid of them but it is a real pain.
-
----
-
-# git flows
-
----
-
-![](img/gitflow_master_develop.svg)
+# git workflows
 
 ---
 
@@ -130,6 +117,32 @@ Example
 git branch # List all branches of local repository. The current branch is highlighted with an asterisk.
 git checkout -b NEW_BRANCH # checks out a branch from the remote repository to local if it exists. If it does not exist, creates a new branch.
 ```
+
+---
+
+## gitflow
+
+---
+
+![](img/gitflow_master_develop.png)
+
+---
+
+![](img/gitflow_feature.png)
+
+---
+
+![](img/gitflow_release.png)
+
+---
+
+![](img/gitflow_hotfix.png)
+
+---
+
+## github flow
+
+[https://guides.github.com/introduction/flow/](https://guides.github.com/introduction/flow/)
 
 ---
 
@@ -148,19 +161,15 @@ git checkout -b NEW_BRANCH # checks out a branch from the remote repository to l
 
 ---
 
-## gitpitch
+(insert screenshots)
 
-@ul
-
- * This entire presentation was made in gitpitch with Markdown.
- * Syntax relatively similar to Beamer in LaTeX
- * Fun to make but would probably only use it for presentations focused on code...
-
-@ulend
+---?code=gitpitch.md
 
 ---
 
 ## Other integrations: travis, codecov, notebooks
+
+[github.com/aguang/transmissim](github.com/aguang/transmissim)
 
 ---
 
