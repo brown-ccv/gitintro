@@ -1,13 +1,13 @@
-# Intro to git
+# Intro to @fa[git]
 ## August Guang
 
 ---
 
 # What is git?
 
- * open source version control tool written by Linus Torvalds (responsible for Linux)
- * version control: tracks and manages changes to documents, computer programs, and other collections of information (mostly stolen from Wiki)
- * repository or repo: where documents, software, etc is stored and the changes are tracked
+ * open source version control tool written by Linus Torvalds
+ * **version control:** tracks and manages changes to documents, computer programs, and other collections of information
+ * **repository or repo:** where documents, software, etc is stored and the changes are tracked
 
 ---
 
@@ -16,11 +16,14 @@
  * Tracking changes over time
  * Helps with collaboration on the same software
  * Protect stable/production code from bugs
- * (Note: this is taken directly from Isabel's slides on git)
 
 ---
 
 ## Webhosts
+
+@fa[gitlab]
+@fa[github]
+@fa[bitbucket]
 
 ---
 
@@ -34,7 +37,7 @@
 
 ## What's actually happening with these commands?
 
-(img/git-local-remotes.png)
+![](img/git-local-remotes.png)
 
 ---
 
@@ -57,6 +60,7 @@
 ---
 
 ## gitpitch
+
 
 ---
 
