@@ -5,8 +5,12 @@
 
 ## What is @fa[git]?
 
- * open source version control tool written by Linus Torvalds (@fa[linux])
- * **version control:** tracks and manages changes to documents, computer programs, and other collections of information
+@ul
+
+ - open source version control tool written by Linus Torvalds (@fa[linux])
+ - **version control:** tracks and manages changes to documents, computer programs, and other collections of information
+
+@ulend
 
 ---
 
@@ -20,9 +24,9 @@
 
 ## Webhosts
 
-@fa[gitlab]
-@fa[github]
-@fa[bitbucket]
+@size[3.5em](@fa[gitlab])
+@size[3.5em](@fa[github])
+@size[3.5em](@fa[bitbucket])
 
 ---
 
@@ -30,25 +34,62 @@
 
  * **repository or repo:** where documents, software, etc is stored and the changes are tracked
 
----
+```text
+my_repo
+├── python_code
+|   ├── something.py
+|   └── something_else.py
+└── README.md
 
-## Conventions I use
-
- * lower case in code snippet is command
- * ALL CAPS in code snippet indicates placeholder variable - user needs to replace with the actual name of the object. For example, `mkdir DIR` makes a directory with the name `DIR`, but if the user wanted to make a directory called `gitintro`, they would type in `mkdir gitintro`.
+```
 
 ---
 
 ## Basic commands everyone should know
 
-```
+```bash
 mkdir DIR # makes a directory (folder)
 cd DIR # Go to created directory
+```
+
+Example:
+```bash
+cd my_repo
+mkdir documentation
+```
+
+Result:
+```text
+my_repo
+├── python_code
+|   ├── something.py
+|   └── something_else.py
+├── documentation
+└── README.md
+```
+
+---
+
+```bash
 git add FILE # add file contents to be ready to be committed
 git commit FILE # commit file contents to the local repository
 git commit -a -m "commit message" # commit all added/modified/deleted file contents with specific message
 git push # push file contents to the remote (i.e. cloud) repository
 ```
+
+Example
+```text
+ Local                    |	Remote
+ ---                      | ---
+ my_repo                  |  my_repo                  | 
+ ├── python_code          |  ├── python_code          |
+ |   ├── something.py     |  |   ├── something.py     |
+ |   └── something_else.py|  |   └── something_else.py|
+ ├── documentation        |  ├── documentation        |
+ └── README.md            |  └── README.md
+```
+
+
 
  * Note if you do not use `git commit -m "commit message"` you will be taken to a vim screen to make your edits. You should be able to get away with typing in `i` to insert, typing your message, then typing `:wq` to write and quit. If that doesn't work you probably did something complicated with vim, good luck!
 
@@ -96,7 +137,9 @@ git checkout -b NEW_BRANCH # checks out a branch from the remote repository to l
 
 ## gitpitch
 
-This entire presentation was made in gitpitch. Essentially Github-flavored markdown that will generate entire presentation for you.
+ * This entire presentation was made in gitpitch with Markdown.
+ * Syntax relatively similar to Beamer in LaTeX
+ * Fun to make but would probably only use it for code heavy presentations...
 
 ---
 
