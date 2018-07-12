@@ -16,17 +16,24 @@
 
 ## Why use git?
 
+@ul
+
  * Tracking changes over time
  * Helps with collaboration on the same software
  * Protect stable/production code from bugs
+
+@ulend
 
 ---
 
 ## Webhosts
 
 @size[3.5em](@fa[gitlab])
+*Gitlab*
 @size[3.5em](@fa[github])
+*Github*
 @size[3.5em](@fa[bitbucket])
+*Bitbucket*
 
 ---
 
@@ -81,17 +88,13 @@ Example
 ```text
  Local                    |	Remote
  ---                      | ---
- my_repo                  |  my_repo                  | 
- ├── python_code          |  ├── python_code          |
- |   ├── something.py     |  |   ├── something.py     |
- |   └── something_else.py|  |   └── something_else.py|
- ├── documentation        |  ├── documentation        |
+ my_repo                  |  my_repo                  
+ ├── python_code          |  ├── python_code          
+ |   ├── something.py     |  |   ├── something.py     
+ |   └── something_else.py|  |   └── something_else.py
+ ├── documentation        |  ├── documentation        
  └── README.md            |  └── README.md
 ```
-
-
-
- * Note if you do not use `git commit -m "commit message"` you will be taken to a vim screen to make your edits. You should be able to get away with typing in `i` to insert, typing your message, then typing `:wq` to write and quit. If that doesn't work you probably did something complicated with vim, good luck!
 
 ---
 
@@ -102,9 +105,8 @@ Example
 
 ---
 
-## What's actually happening with these commands?
-
 ![](img/git-local-remotes.png)
+*What's happening under the hood?*
 
 ---
 
@@ -115,6 +117,12 @@ Example
 ---
 
 # git flows
+
+---
+
+![](img/gitflow_master_develop.svg)
+
+---
 
 ## Branching
 
@@ -131,15 +139,24 @@ git checkout -b NEW_BRANCH # checks out a branch from the remote repository to l
 
 ## Slack @fa[slack] integration
 
+@ul
+
  * Can subscribe a channel to a Github repository so everyone in the channel sees commits, pushes, etc and can comment on them
+ * Useful for individual projects
+
+@ulend
 
 ---
 
 ## gitpitch
 
+@ul
+
  * This entire presentation was made in gitpitch with Markdown.
  * Syntax relatively similar to Beamer in LaTeX
- * Fun to make but would probably only use it for code heavy presentations...
+ * Fun to make but would probably only use it for presentations focused on code...
+
+@ulend
 
 ---
 
