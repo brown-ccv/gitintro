@@ -53,21 +53,23 @@ my_repo
 ---
 
 ```bash
+# check status of your git repo including what's changed
+# and what's not being tracked
+git status
 # add file contents to be ready to be committed
 git add FILE 
 # commit file contents to the local repository
 git commit FILE
-# commit all added/modified/deleted file contents with specific message
+# commit all added/modified/deleted file contents with
+# specific message
 git commit -a -m "commit message"
 # push file contents to the remote (i.e. cloud) repository
 git push 
 ```
 
-+++?code=src/gitcommands.sh
++++
 
-Example
-
-@[10](git status reveals items in documentation are not being tracked.)
+`git status` reveals items in documentation are not being tracked.
 
 ```text
 On branch master
@@ -76,20 +78,51 @@ Your branch is up to date with 'origin/master'.
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
 
-	.DS_Store
-	documentation/
+	@color[red].DS_Store
+	@color[red]documentation/
 ```
 
 ```text
- Local                    |	Remote
- ---                      | ---
- my_repo                  |  my_repo                  
- ├── python_code          |  ├── python_code          
- |   ├── something.py     |  |   ├── something.py     
- |   └── something_else.py|  |   └── something_else.py
- ├── documentation        |  ├── documentation        
- |   ├── something.py     |
- └── README.md            |  └── README.md
+Working Directory          | Local                      |	Remote
+ ---                       | ---                        |
+ my_repo                   |  my_repo                   |  my_repo 
+ ├── python_code           |  ├── python_code           |  ├── python_code
+ |   ├── something.py      |  |   ├── something.py      |  |   ├── something.py
+ |   └── something_else.py |  |   └── something_else.py |  |   └── something_else.py
+ ├── documentation         |  └── README.md             |  └── README.md
+ |   ├── something.txt     |                            |
+ └── README.md             |                            |
+```
+
++++
+
+`git add documentation` adds everything in the `documentation` folder.
+
+```text
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	@color[green]new file:   documentation/
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	.DS_Store
+```
+
+```text
+Working Directory          | Local                      |	Remote
+ ---                       | ---                        |
+ my_repo                   |  my_repo                   |  my_repo 
+ ├── python_code           |  ├── python_code           |  ├── python_code
+ |   ├── something.py      |  |   ├── something.py      |  |   ├── something.py
+ |   └── something_else.py |  |   └── something_else.py |  |   └── something_else.py
+ ├── documentation         |  └── README.md             |  └── README.md
+ |   ├── something.txt     |                            |
+ └── README.md             |                            |
 ```
 
 ---
