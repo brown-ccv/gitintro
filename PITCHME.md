@@ -52,6 +52,10 @@ my_repo
 
 ---
 
+![](img/git-local-remotes.png)
+
+---
+
 ```bash
 # check status of your git repo including what's changed
 # and what's not being tracked
@@ -71,14 +75,14 @@ git push
 
 `git status` reveals items in documentation are not being tracked.
 
-```text
+```diff
 On branch master
 Your branch is up to date with 'origin/master'.
 
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
 
-	@color[red]documentation/
+	-documentation/
 ```
 
 ```text
@@ -102,7 +106,7 @@ git add documentation
 git status
 ```
 
-```text
+```bash
 On branch master
 Your branch is up to date with 'origin/master'.
 
@@ -118,7 +122,6 @@ Working Directory          | Local                      |	Remote
  my_repo                   |  my_repo                   |  my_repo 
  ├── python_code           |  ├── python_code           |  ├── python_code
  |   ├── something.py      |  |   ├── something.py      |  |   ├── something.py
- |   └── something_else.py |  |   └── something_else.py |  |   └── something_else.py
  ├── documentation         |  └── README.md             |  └── README.md
  |   ├── something.txt     |                            |
  └── README.md             |                            |
@@ -144,10 +147,9 @@ Working Directory          | Local                      |	Remote
  my_repo                   |  my_repo                   |  my_repo 
  ├── python_code           |  ├── python_code           |  ├── python_code
  |   ├── something.py      |  |   ├── something.py      |  |   ├── something.py
- |   └── something_else.py |  |   └── something_else.py |  |   └── something_else.py
  ├── documentation         |  ├── documentation         |  ├── documentation
- |   ├── something.txt     |  |   ├── something.txt     |  |   ├── something.txt
- └── README.md             |  └── README.md             |  └── README.md
+ |   ├── something.txt     |  |   ├── something.txt     |  └── README.md 
+ └── README.md             |  └── README.md             | 
 ```
 
 +++
@@ -172,10 +174,9 @@ Working Directory          | Local                      |	Remote
  my_repo                   |  my_repo                   |  my_repo 
  ├── python_code           |  ├── python_code           |  ├── python_code
  |   ├── something.py      |  |   ├── something.py      |  |   ├── something.py
- |   └── something_else.py |  |   └── something_else.py |  |   └── something_else.py
- ├── documentation         |  ├── documentation         |  └── README.md
- |   ├── something.txt     |  |   ├── something.txt     |
- └── README.md             |  └── README.md             |
+ ├── documentation         |  ├── documentation         |  ├── documentation 
+ |   ├── something.txt     |  |   ├── something.txt     |  |   ├── something.txt
+ └── README.md             |  └── README.md             |  └── README.md
 ```
 
 ---
@@ -184,16 +185,129 @@ Working Directory          | Local                      |	Remote
 
 ---
 
-# git workflows
+```bash
+# pull data from remote repo into local repo
+git fetch
+# merges data from local repo into working directory
+git merge
+# used to navigate between branches on the local repo
+# OR create a new branch (locally)
+git checkout
+# combines fetch & merge all at once
+git pull
+```
+
++++
+
+`git fetch` pulls data from remote repo into local repo.
+
+```diff
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	-documentation/
+```
+
+```text
+Working Directory          | Local                      |	Remote
+ ---                       | ---                        |
+ my_repo                   |  my_repo                   |  my_repo 
+ ├── python_code           |  ├── python_code           |  ├── python_code
+ |   ├── something.py      |  |   ├── something.py      |  |   ├── something.py
+ |   └── something_else.py |  |   └── something_else.py |  |   └── something_else.py
+ ├── documentation         |  └── README.md             |  └── README.md
+ |   ├── something.txt     |                            |
+ └── README.md             |                            |
+```
+
++++
+
+`git add documentation` adds everything in the `documentation` folder.
+
+```bash
+git add documentation
+git status
+```
+
+```bash
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	@color[green]new file:   documentation/
+```
+
+```text
+Working Directory          | Local                      |	Remote
+ ---                       | ---                        |
+ my_repo                   |  my_repo                   |  my_repo 
+ ├── python_code           |  ├── python_code           |  ├── python_code
+ |   ├── something.py      |  |   ├── something.py      |  |   ├── something.py
+ ├── documentation         |  └── README.md             |  └── README.md
+ |   ├── something.txt     |                            |
+ └── README.md             |                            |
+```
+
++++
+
+`git commit -a -m "documentation folder"` actually commits it to local repo.
+
+```bash
+git commit -a -m "documentation folder"
+git status
+```
+
+```text
+On branch master
+Your branch is up to date with 'origin/master'.
+```
+
+```text
+Working Directory          | Local                      |	Remote
+ ---                       | ---                        |
+ my_repo                   |  my_repo                   |  my_repo 
+ ├── python_code           |  ├── python_code           |  ├── python_code
+ |   ├── something.py      |  |   ├── something.py      |  |   ├── something.py
+ ├── documentation         |  ├── documentation         |  ├── documentation
+ |   ├── something.txt     |  |   ├── something.txt     |  └── README.md 
+ └── README.md             |  └── README.md             | 
+```
+
++++
+
+`git push origin master` pushes everything from the local repository to the remote repository.
+
+```bash
+git push origin master
+git status
+```
+
+```text
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+```
+
+
+```text
+Working Directory          | Local                      |	Remote
+ ---                       | ---                        |
+ my_repo                   |  my_repo                   |  my_repo 
+ ├── python_code           |  ├── python_code           |  ├── python_code
+ |   ├── something.py      |  |   ├── something.py      |  |   ├── something.py
+ ├── documentation         |  ├── documentation         |  ├── documentation 
+ |   ├── something.txt     |  |   ├── something.txt     |  |   ├── something.txt
+ └── README.md             |  └── README.md             |  └── README.md
+```
 
 ---
 
-## Branching
-
-```
-git branch # List all branches of local repository. The current branch is highlighted with an asterisk.
-git checkout -b NEW_BRANCH # checks out a branch from the remote repository to local if it exists. If it does not exist, creates a new branch.
-```
+# @fa[git] workflows
 
 ---
 
@@ -242,7 +356,7 @@ git checkout -b NEW_BRANCH # checks out a branch from the remote repository to l
 
 ## Other integrations: travis, codecov, notebooks
 
-[github.com/aguang/transmissim](github.com/aguang/transmissim)
+[http://github.com/aguang/transmissim](http://github.com/aguang/transmissim)
 
 ---
 
