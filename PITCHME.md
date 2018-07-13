@@ -112,7 +112,7 @@ Your branch is up to date with 'origin/master'.
 Changes to be committed:
   (use "git reset HEAD <file>..." to unstage)
 
-	@color[green]new file:   documentation/
+	new file:   documentation/
 ```
 
 ```text
@@ -190,118 +190,212 @@ git fetch
 # merges data from local repo into working directory
 git merge
 # used to navigate between branches on the local repo
-# OR create a new branch (locally)
-git checkout
+# need to run git fetch first to pull in branches
+git checkout BRANCH
+# used to create a new branch
+git checkout -b NEW_BRANCH
+# tells you what branches you have locally and what
+# branch your working directory is on
+git branch
 # combines fetch & merge all at once
 git pull
 ```
 
 +++
 
+Original structure
+
+```diff
++ remote
+master                 | BRANCH                   
+ ---                   | ---                       
+ my_repo               |  my_repo                  
+ ├── python_code       |  ├── python_code           
+ |   ├── something.py  |  |   ├── something.py 
+ ├── documentation     |  ├── LICENSE.txt     
+ |   ├── something.txt |  └── README.md                                       
+ └── README.md         |     
+
+- local
+master
+ ---                                          
+ my_repo                                 
+ ├── python_code                 
+ |   ├── something.py
+ ├── documentation         
+ |   ├── something.txt                               
+ └── README.md          
+
+- working directory
+master
+ ---                                          
+ my_repo                                 
+ ├── python_code                 
+ |   ├── something.py                              
+ └── README.md                
+```
+
+
++++
+
 `git fetch` pulls data from remote repo into local repo.
 
 ```diff
-On branch master
-Your branch is up to date with 'origin/master'.
++ remote
+master                 | BRANCH                    
+ ---                   | ---                       
+ my_repo               |  my_repo                  
+ ├── python_code       |  ├── python_code           
+ |   ├── something.py  |  |   ├── something.py 
+ ├── documentation     |  ├── LICENSE.txt     
+ |   ├── something.txt |  └── README.md                                       
+ └── README.md         |     
 
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
+- local
+master                 | BRANCH                    
+ ---                   | ---                       
+ my_repo               |  my_repo                  
+ ├── python_code       |  ├── python_code           
+ |   ├── something.py  |  |   ├── something.py 
+ ├── documentation     |  ├── LICENSE.txt     
+ |   ├── something.txt |  └── README.md                                       
+ └── README.md         |     
 
-	-documentation/
-```
-
-```text
-Working Directory          | Local                      |	Remote
- ---                       | ---                        |
- my_repo                   |  my_repo                   |  my_repo 
- ├── python_code           |  ├── python_code           |  ├── python_code
- |   ├── something.py      |  |   ├── something.py      |  |   ├── something.py
- |   └── something_else.py |  |   └── something_else.py |  |   └── something_else.py
- ├── documentation         |  └── README.md             |  └── README.md
- |   ├── something.txt     |                            |
- └── README.md             |                            |
-```
-
-+++
-
-`git add documentation` adds everything in the `documentation` folder.
-
-```bash
-git add documentation
-git status
-```
-
-```bash
-On branch master
-Your branch is up to date with 'origin/master'.
-
-Changes to be committed:
-  (use "git reset HEAD <file>..." to unstage)
-
-	@color[green]new file:   documentation/
-```
-
-```text
-Working Directory          | Local                      |	Remote
- ---                       | ---                        |
- my_repo                   |  my_repo                   |  my_repo 
- ├── python_code           |  ├── python_code           |  ├── python_code
- |   ├── something.py      |  |   ├── something.py      |  |   ├── something.py
- ├── documentation         |  └── README.md             |  └── README.md
- |   ├── something.txt     |                            |
- └── README.md             |                            |
+- working directory
+master
+ ---                                          
+ my_repo                                 
+ ├── python_code                 
+ |   ├── something.py                              
+ └── README.md                
 ```
 
 +++
 
-`git commit -a -m "documentation folder"` actually commits it to local repo.
+`git merge` merges everything from local current branch into working directory.
 
-```bash
-git commit -a -m "documentation folder"
-git status
-```
+```diff
++ remote
+master                 | BRANCH                    
+ ---                   | ---                       
+ my_repo               |  my_repo                  
+ ├── python_code       |  ├── python_code           
+ |   ├── something.py  |  |   ├── something.py 
+ ├── documentation     |  ├── LICENSE.txt     
+ |   ├── something.txt |  └── README.md                                       
+ └── README.md         |     
 
-```text
-On branch master
-Your branch is up to date with 'origin/master'.
-```
+- local
+master                 | BRANCH                    
+ ---                   | ---                       
+ my_repo               |  my_repo                  
+ ├── python_code       |  ├── python_code           
+ |   ├── something.py  |  |   ├── something.py 
+ ├── documentation     |  ├── LICENSE.txt     
+ |   ├── something.txt |  └── README.md                                       
+ └── README.md         |     
 
-```text
-Working Directory          | Local                      |	Remote
- ---                       | ---                        |
- my_repo                   |  my_repo                   |  my_repo 
- ├── python_code           |  ├── python_code           |  ├── python_code
- |   ├── something.py      |  |   ├── something.py      |  |   ├── something.py
- ├── documentation         |  ├── documentation         |  ├── documentation
- |   ├── something.txt     |  |   ├── something.txt     |  └── README.md 
- └── README.md             |  └── README.md             | 
+- working directory
+master
+ ---                                          
+ my_repo                                 
+ ├── python_code                 
+ |   ├── something.py
+ ├── documentation         
+ |   ├── something.txt                                
+ └── README.md                
 ```
 
 +++
 
-`git push origin master` pushes everything from the local repository to the remote repository.
+`git checkout BRANCH` now pulls in everything from local BRANCH into working.
+
+```diff
++ remote
+master                 | BRANCH                    
+ ---                   | ---                       
+ my_repo               |  my_repo                  
+ ├── python_code       |  ├── python_code           
+ |   ├── something.py  |  |   ├── something.py 
+ ├── documentation     |  ├── LICENSE.txt     
+ |   ├── something.txt |  └── README.md                                       
+ └── README.md         |     
+
+- local
+master                 | BRANCH                    
+ ---                   | ---                       
+ my_repo               |  my_repo                  
+ ├── python_code       |  ├── python_code           
+ |   ├── something.py  |  |   ├── something.py 
+ ├── documentation     |  ├── LICENSE.txt     
+ |   ├── something.txt |  └── README.md                                       
+ └── README.md         |
+
+- working directory
+BRANCH
+ ---                                          
+ my_repo                                 
+ ├── python_code                 
+ |   ├── something.py
+ ├── LICENSE.txt                           
+ └── README.md                
+```
+
++++
+
+`git checkout -b NEW_BRANCH` creates a new branch locally and switches the working directory over.
+
+```diff
++ remote
+master                 | BRANCH                    
+ ---                   | ---                       
+ my_repo               |  my_repo                  
+ ├── python_code       |  ├── python_code           
+ |   ├── something.py  |  |   ├── something.py 
+ ├── documentation     |  ├── LICENSE.txt     
+ |   ├── something.txt |  └── README.md                                       
+ └── README.md         |     
+
+- local
+master                 | BRANCH                 | NEW_BRANCH   
+ ---                   | ---                    | ---   
+ my_repo               |  my_repo               | my_repo   
+ ├── python_code       |  ├── python_code       | ├── python_code      
+ |   ├── something.py  |  |   ├── something.py  | |   ├── something.py
+ ├── documentation     |  ├── LICENSE.txt       | ├── LICENSE.txt   
+ |   ├── something.txt |  └── README.md         | └── README.md                                    
+ └── README.md         |
+
+- working directory
+NEW_BRANCH
+ ---                                          
+ my_repo                                 
+ ├── python_code                 
+ |   ├── something.py
+ ├── LICENSE.txt                           
+ └── README.md                
+```
+
++++
+
+`git branch` tells you what branch you are on
 
 ```bash
-git push origin master
-git status
+git branch
+* NEW_BRANCH
+  master
 ```
 
-```text
-On branch master
-Your branch is ahead of 'origin/master' by 1 commit.
-  (use "git push" to publish your local commits)
-```
++++
 
+Note: when pushing changes from NEW_BRANCH to remote for first time, you must use `git push origin NEW_BRANCH` in order to set a new (upstream) remote branch. Otherwise you will get this error:
 
-```text
-Working Directory          | Local                      |	Remote
- ---                       | ---                        |
- my_repo                   |  my_repo                   |  my_repo 
- ├── python_code           |  ├── python_code           |  ├── python_code
- |   ├── something.py      |  |   ├── something.py      |  |   ├── something.py
- ├── documentation         |  ├── documentation         |  ├── documentation 
- |   ├── something.txt     |  |   ├── something.txt     |  |   ├── something.txt
- └── README.md             |  └── README.md             |  └── README.md
+```bash
+git push
+fatal: The current branch NEW_BRANCH has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin NEW_BRANCH
 ```
 
 ---
