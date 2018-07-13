@@ -52,39 +52,34 @@ my_repo
 
 ---
 
-## Basic commands everyone should know
-
 ```bash
-mkdir DIR # makes a directory (folder)
-cd DIR # Go to created directory
+# add file contents to be ready to be committed
+git add FILE 
+# commit file contents to the local repository
+git commit FILE
+# commit all added/modified/deleted file contents with specific message
+git commit -a -m "commit message"
+# push file contents to the remote (i.e. cloud) repository
+git push 
 ```
 
-Example:
-```bash
-cd my_repo
-mkdir documentation
-```
-
-Result:
-```text
-my_repo
-├── python_code
-|   ├── something.py
-|   └── something_else.py
-├── documentation
-└── README.md
-```
-
----
-
-```bash
-git add FILE # add file contents to be ready to be committed
-git commit FILE # commit file contents to the local repository
-git commit -a -m "commit message" # commit all added/modified/deleted file contents with specific message
-git push # push file contents to the remote (i.e. cloud) repository
-```
++++?code=src/gitcommands.sh
 
 Example
+
+@[10](git status reveals items in documentation are not being tracked.)
+
+```text
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	.DS_Store
+	documentation/
+```
+
 ```text
  Local                    |	Remote
  ---                      | ---
@@ -93,17 +88,13 @@ Example
  |   ├── something.py     |  |   ├── something.py     
  |   └── something_else.py|  |   └── something_else.py
  ├── documentation        |  ├── documentation        
+ |   ├── something.py     |
  └── README.md            |  └── README.md
 ```
 
 ---
 
-<div class="left">
-	![](img/git-local-remotes.png)
-</div>
-<div class="right">
-	*What's happening under the hood?*
-</div>
+![](img/git-local-remotes.png)
 
 ---
 
@@ -159,11 +150,7 @@ git checkout -b NEW_BRANCH # checks out a branch from the remote repository to l
 
 @ulend
 
----
-
-(insert screenshots)
-
----?code=gitpitch.md
+---?code=src/gitpitch.md
 
 ---
 
