@@ -78,7 +78,6 @@ Your branch is up to date with 'origin/master'.
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
 
-	@color[red].DS_Store
 	@color[red]documentation/
 ```
 
@@ -98,6 +97,11 @@ Working Directory          | Local                      |	Remote
 
 `git add documentation` adds everything in the `documentation` folder.
 
+```bash
+git add documentation
+git status
+```
+
 ```text
 On branch master
 Your branch is up to date with 'origin/master'.
@@ -106,11 +110,6 @@ Changes to be committed:
   (use "git reset HEAD <file>..." to unstage)
 
 	@color[green]new file:   documentation/
-
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
-
-	.DS_Store
 ```
 
 ```text
@@ -123,6 +122,60 @@ Working Directory          | Local                      |	Remote
  ├── documentation         |  └── README.md             |  └── README.md
  |   ├── something.txt     |                            |
  └── README.md             |                            |
+```
+
++++
+
+`git commit -a -m "documentation folder"` actually commits it to local repo.
+
+```bash
+git commit -a -m "documentation folder"
+git status
+```
+
+```text
+On branch master
+Your branch is up to date with 'origin/master'.
+```
+
+```text
+Working Directory          | Local                      |	Remote
+ ---                       | ---                        |
+ my_repo                   |  my_repo                   |  my_repo 
+ ├── python_code           |  ├── python_code           |  ├── python_code
+ |   ├── something.py      |  |   ├── something.py      |  |   ├── something.py
+ |   └── something_else.py |  |   └── something_else.py |  |   └── something_else.py
+ ├── documentation         |  ├── documentation         |  ├── documentation
+ |   ├── something.txt     |  |   ├── something.txt     |  |   ├── something.txt
+ └── README.md             |  └── README.md             |  └── README.md
+```
+
++++
+
+`git push origin master` pushes everything from the local repository to the remote repository.
+
+```bash
+git push origin master
+git status
+```
+
+```text
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+```
+
+
+```text
+Working Directory          | Local                      |	Remote
+ ---                       | ---                        |
+ my_repo                   |  my_repo                   |  my_repo 
+ ├── python_code           |  ├── python_code           |  ├── python_code
+ |   ├── something.py      |  |   ├── something.py      |  |   ├── something.py
+ |   └── something_else.py |  |   └── something_else.py |  |   └── something_else.py
+ ├── documentation         |  ├── documentation         |  └── README.md
+ |   ├── something.txt     |  |   ├── something.txt     |
+ └── README.md             |  └── README.md             |
 ```
 
 ---
