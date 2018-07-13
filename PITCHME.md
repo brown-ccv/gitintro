@@ -82,19 +82,18 @@ Your branch is up to date with 'origin/master'.
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
 
-	-documentation/
+	- documentation/
 ```
 
 ```text
-Working Directory          | Local                      |	Remote
- ---                       | ---                        |
- my_repo                   |  my_repo                   |  my_repo 
- ├── python_code           |  ├── python_code           |  ├── python_code
- |   ├── something.py      |  |   ├── something.py      |  |   ├── something.py
- |   └── something_else.py |  |   └── something_else.py |  |   └── something_else.py
- ├── documentation         |  └── README.md             |  └── README.md
- |   ├── something.txt     |                            |
- └── README.md             |                            |
+Working Directory       | Local                   |	Remote
+ ---                    | ---                     |
+ my_repo                |  my_repo                |  my_repo 
+ ├── python_code        |  ├── python_code        |  ├── python_code
+ |   ├── something.py   |  |   ├── something.py   |  |   ├── something.py
+ ├── documentation      |  └── README.md          |  └── README.md
+ |   ├── something.txt  |                         |
+ └── README.md          |                         |
 ```
 
 +++
@@ -117,14 +116,14 @@ Changes to be committed:
 ```
 
 ```text
-Working Directory          | Local                      |	Remote
- ---                       | ---                        |
- my_repo                   |  my_repo                   |  my_repo 
- ├── python_code           |  ├── python_code           |  ├── python_code
- |   ├── something.py      |  |   ├── something.py      |  |   ├── something.py
- ├── documentation         |  └── README.md             |  └── README.md
- |   ├── something.txt     |                            |
- └── README.md             |                            |
+Working Directory       | Local                   |	Remote
+ ---                    | ---                     |
+ my_repo                |  my_repo                |  my_repo 
+ ├── python_code        |  ├── python_code        |  ├── python_code
+ |   ├── something.py   |  |   ├── something.py   |  |   ├── something.py
+ ├── documentation      |  └── README.md          |  └── README.md
+ |   ├── something.txt  |                         |
+ └── README.md          |                         |
 ```
 
 +++
@@ -362,4 +361,5 @@ Working Directory          | Local                      |	Remote
 
 # Learn more
 
- * Generally stackoverflow.com is where I have acquired all of my git knowledge.
+ * Generally @fa[stack-overflow](http://www.stackoverflow.com) is where I have acquired all of my git knowledge.
+ * Atlassian also has [great explanations of everything](https://www.atlassian.com/git/tutorials/using-branches/git-checkout)
