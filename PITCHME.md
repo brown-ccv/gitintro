@@ -28,11 +28,11 @@
 
 ## Webhosts
 
-@size[3.5em](@fa[gitlab])
+@size[3.5em][@fa[gitlab]](https://about.gitlab.com)
 *Gitlab*
-@size[3.5em](@fa[github])
+@size[3.5em][@fa[github]](https://github.com)
 *Github*
-@size[3.5em](@fa[bitbucket])
+@size[3.5em][@fa[bitbucket]](https://bitbucket.org)
 *Bitbucket*
 
 ---
@@ -53,6 +53,8 @@ my_repo
 ---
 
 ![](img/git-local-remotes.png)
+@size[0.5em][https://hoantran-it.blogspot.com/2016/06/git-tutorial-1-git-committing-and.html](https://hoantran-it.blogspot.com/2016/06/git-tutorial-1-git-committing-and.html)
+
 
 ---
 
@@ -388,9 +390,9 @@ git branch
 
 +++
 
-Note: when pushing changes from NEW_BRANCH to remote for first time, you must use `git push origin NEW_BRANCH` in order to set a new (upstream) remote branch. Otherwise you will get this error:
+Note: when pushing changes from `NEW_BRANCH` to remote for first time, you must use `git push origin NEW_BRANCH` in order to set a new (upstream) remote branch. Otherwise you will get this error:
 
-```bash
+```diff
 git push
 fatal: The current branch NEW_BRANCH has no upstream branch.
 To push the current branch and set the remote as upstream, use
@@ -406,19 +408,20 @@ To push the current branch and set the remote as upstream, use
 
 ## gitflow
 
----
++++
 
 ![](img/gitflow_master_develop.png)
+@size[0.5em][https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
 
----
++++
 
 ![](img/gitflow_feature.png)
 
----
++++
 
 ![](img/gitflow_release.png)
 
----
++++
 
 ![](img/gitflow_hotfix.png)
 
